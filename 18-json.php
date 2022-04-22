@@ -2,7 +2,7 @@
 
 $productos = [
     [
-        'Nombre' => 'Televisor',
+        'Nombre' => 'Televisión',
         'Precio' => 200,
         'Disponible' => true
     ],
@@ -22,22 +22,17 @@ $productos = [
         'Disponible' => true
     ]
 ];
+echo "<pre>";
+var_dump($productos);
 
-foreach($productos as $producto){
-    echo "<pre>";
-    var_dump($producto);
-    echo "</pre>";
-}
-echo "<br>";
+$json = json_encode($productos, JSON_UNESCAPED_UNICODE); //toma un array y lo convierte en un string
+$json_array = json_decode($json); // convierte de string a un array
 
-foreach($productos as $producto){ ?>
-    <li>
-        <p>Producto: <?php echo $producto['Nombre']; ?></p>
-        <p>Precio: <?php echo "$ " . $producto['Precio']; ?></p>
-        <p><?php echo ($producto['Disponible']) ? 'Disponible' : 'No Disponible' ?></p>
-    </li>
-    <?php
-}
+var_dump($json);
+var_dump($json_array);
+echo "</pre>";
+
+
 
 
 include 'includes/footer.php';
